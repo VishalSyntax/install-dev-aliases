@@ -1,4 +1,4 @@
-#  Aliases Reference
+#  Support
 ## Aliases Reference
 See the [REFERENCE.md](docks/README.md) file for detailed usage.
 
