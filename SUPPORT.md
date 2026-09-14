@@ -1,4 +1,7 @@
-# Aliases Reference
+#  Aliases Reference
+## Aliases Reference
+See the [REFERENCE.md](docks/README.md) file for detailed usage.
+
 
 Complete reference for all aliases installed by **dev-aliases**, including descriptions and real-world workflow examples.
 
