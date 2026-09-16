@@ -625,6 +625,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#manual-setup-no-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Setup (no script)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Setup (no script)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-the-shared-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create the shared directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-set-tf_data_dir-permanently" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Set TF_DATA_DIR permanently
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-restart-your-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Restart your terminal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -755,6 +805,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#manual-setup-no-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Setup (no script)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Setup (no script)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-the-shared-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create the shared directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-set-tf_data_dir-permanently" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Set TF_DATA_DIR permanently
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-restart-your-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Restart your terminal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -827,6 +927,22 @@ This folder contains provider binaries (like <code>aws.exe</code> ~800MB), which
 <blockquote>
 <p>Restart your terminal after running, then do <code>terraform init</code> in any project — providers will be stored in <code>C:\terraform-shared</code> and reused across all your projects from that point on.</p>
 </blockquote>
+<hr />
+<h2 id="manual-setup-no-script">Manual Setup (no script)</h2>
+<p>If you'd rather do it yourself, here are the exact steps.</p>
+<h3 id="1-create-the-shared-directory">1. Create the shared directory</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mkdir C:\terraform-shared
+</code></pre></div>
+<h3 id="2-set-tf_data_dir-permanently">2. Set TF_DATA_DIR permanently</h3>
+<p><strong>CMD:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>setx TF_DATA_DIR "C:\terraform-shared"
+</code></pre></div></p>
+<p><strong>PowerShell:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="no">[Environment]</span><span class="p">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">'TF_DATA_DIR'</span><span class="p">,</span> <span class="s1">'C:\terraform-shared'</span><span class="p">,</span> <span class="s1">'User'</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Or via GUI: <strong>Start → Edit environment variables for your account → New</strong> → set name <code>TF_DATA_DIR</code> and value <code>C:\terraform-shared</code>.</p>
+<h3 id="3-restart-your-terminal">3. Restart your terminal</h3>
+<p>Then run <code>terraform init</code> in any project — it will use <code>C:\terraform-shared</code> from now on.</p>
 
 
 

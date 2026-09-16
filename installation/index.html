@@ -499,6 +499,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#manual-setup-no-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Setup (no script)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Setup (no script)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-the-alias-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create the alias directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-cmd-alias-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create CMD alias files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-add-to-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Add to PATH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-add-powershell-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Add PowerShell aliases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -716,6 +777,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#manual-setup-no-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Setup (no script)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Setup (no script)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-the-alias-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create the alias directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-cmd-alias-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create CMD alias files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-add-to-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Add to PATH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-add-powershell-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Add PowerShell aliases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -772,6 +894,68 @@
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>gs<span class="w">              </span><span class="c1"># runs: git status</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>glog<span class="w">            </span><span class="c1"># runs: git log --oneline</span>
 </code></pre></div>
+<hr />
+<h2 id="manual-setup-no-script">Manual Setup (no script)</h2>
+<p>If you'd rather do it yourself, here's exactly what the script does step by step.</p>
+<h3 id="1-create-the-alias-directory">1. Create the alias directory</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mkdir %USERPROFILE%\bin
+</code></pre></div>
+<h3 id="2-create-cmd-alias-files">2. Create CMD alias files</h3>
+<p>For each alias, create a <code>.cmd</code> file in <code>%USERPROFILE%\bin</code>. For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>echo @echo off &gt; %USERPROFILE%\bin\tf.cmd
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>echo terraform %%* &gt;&gt; %USERPROFILE%\bin\tf.cmd
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>echo @echo off &gt; %USERPROFILE%\bin\tfi.cmd
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>echo terraform init %%* &gt;&gt; %USERPROFILE%\bin\tfi.cmd
+</code></pre></div>
+<p>Repeat for each alias you want. See the full list in <a href="../aliases-reference/">Alias Reference</a>.</p>
+<h3 id="3-add-to-path">3. Add to PATH</h3>
+<p>Open <strong>Start → Edit environment variables for your account</strong> → find <code>Path</code> → click Edit → add <code>%USERPROFILE%\bin</code>.</p>
+<p>Or run this in PowerShell:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">$path</span> <span class="p">=</span> <span class="no">[Environment]</span><span class="p">::</span><span class="n">GetEnvironmentVariable</span><span class="p">(</span><span class="s1">'Path'</span><span class="p">,</span><span class="s1">'User'</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="no">[Environment]</span><span class="p">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">'Path'</span><span class="p">,</span> <span class="nv">$path</span> <span class="p">+</span> <span class="s1">';'</span> <span class="p">+</span> <span class="s2">"$HOME\bin"</span><span class="p">,</span> <span class="s1">'User'</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="4-add-powershell-aliases">4. Add PowerShell aliases</h3>
+<p>Open your PowerShell profile:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">notepad</span> <span class="nv">$PROFILE</span>
+</code></pre></div>
+<p>If the file doesn't exist yet:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">New-Item</span> <span class="n">-ItemType</span> <span class="n">File</span> <span class="n">-Path</span> <span class="nv">$PROFILE</span> <span class="n">-Force</span>
+</code></pre></div>
+<p>Add these functions at the bottom:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c"># Terraform</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">function</span> <span class="n">tf</span>      <span class="p">{</span> <span class="n">terraform</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">function</span> <span class="n">tfi</span>     <span class="p">{</span> <span class="n">terraform</span> <span class="n">init</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">function</span> <span class="n">tfp</span>     <span class="p">{</span> <span class="n">terraform</span> <span class="n">plan</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">function</span> <span class="n">tfa</span>     <span class="p">{</span> <span class="n">terraform</span> <span class="n">apply</span> <span class="p">-</span><span class="n">-auto-approve</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">function</span> <span class="n">tfd</span>     <span class="p">{</span> <span class="n">terraform</span> <span class="n">destroy</span> <span class="p">-</span><span class="n">-auto-approve</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">function</span> <span class="n">tfv</span>     <span class="p">{</span> <span class="n">terraform</span> <span class="n">validate</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="k">function</span> <span class="n">tff</span>     <span class="p">{</span> <span class="n">terraform</span> <span class="n">fmt</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="k">function</span> <span class="n">tfo</span>     <span class="p">{</span> <span class="n">terraform</span> <span class="n">output</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="k">function</span> <span class="n">tfs</span>     <span class="p">{</span> <span class="n">terraform</span> <span class="n">show</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="k">function</span> <span class="n">tfws</span>    <span class="p">{</span> <span class="n">terraform</span> <span class="n">workspace</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="c"># Git</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="k">function</span> <span class="n">g</span>       <span class="p">{</span> <span class="n">git</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="k">function</span> <span class="n">gs</span>      <span class="p">{</span> <span class="n">git</span> <span class="n">status</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="k">function</span> <span class="n">ga</span>      <span class="p">{</span> <span class="n">git</span> <span class="n">add</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="k">function</span> <span class="nb">gc </span>     <span class="p">{</span> <span class="n">git</span> <span class="n">commit</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="k">function</span> <span class="nb">gp </span>     <span class="p">{</span> <span class="n">git</span> <span class="n">push</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="k">function</span> <span class="nb">gl </span>     <span class="p">{</span> <span class="n">git</span> <span class="n">pull</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="k">function</span> <span class="n">gb</span>      <span class="p">{</span> <span class="n">git</span> <span class="n">branch</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="k">function</span> <span class="n">gco</span>     <span class="p">{</span> <span class="n">git</span> <span class="n">checkout</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="k">function</span> <span class="n">gd</span>      <span class="p">{</span> <span class="n">git</span> <span class="nb">diff </span><span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="k">function</span> <span class="n">glog</span>    <span class="p">{</span> <span class="n">git</span> <span class="n">log</span> <span class="p">-</span><span class="n">-oneline</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="k">function</span> <span class="n">gst</span>     <span class="p">{</span> <span class="n">git</span> <span class="n">stash</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="k">function</span> <span class="n">gstp</span>    <span class="p">{</span> <span class="n">git</span> <span class="n">stash</span> <span class="n">pop</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="k">function</span> <span class="n">grs</span>     <span class="p">{</span> <span class="n">git</span> <span class="n">restore</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="k">function</span> <span class="n">grss</span>    <span class="p">{</span> <span class="n">git</span> <span class="n">restore</span> <span class="p">-</span><span class="n">-staged</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="k">function</span> <span class="nb">gm </span>     <span class="p">{</span> <span class="n">git</span> <span class="n">merge</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="k">function</span> <span class="n">grb</span>     <span class="p">{</span> <span class="n">git</span> <span class="n">rebase</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="k">function</span> <span class="n">grt</span>     <span class="p">{</span> <span class="n">git</span> <span class="n">remote</span> <span class="n">-v</span> <span class="nv">@args</span> <span class="p">}</span>
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="k">function</span> <span class="n">gcl</span>     <span class="p">{</span> <span class="n">git</span> <span class="n">clone</span> <span class="nv">@args</span> <span class="p">}</span>
+</code></pre></div>
+<p>Save and restart your terminal.</p>
 
 
 
