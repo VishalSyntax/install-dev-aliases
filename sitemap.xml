@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://VishalSyntax.github.io/install-dev-aliases/</loc>
-         <lastmod>2026-09-15</lastmod>
+         <lastmod>2026-09-16</lastmod>
     </url>
     <url>
          <loc>https://VishalSyntax.github.io/install-dev-aliases/aliases-reference/</loc>
-         <lastmod>2026-09-15</lastmod>
+         <lastmod>2026-09-16</lastmod>
     </url>
     <url>
          <loc>https://VishalSyntax.github.io/install-dev-aliases/contributing/</loc>
-         <lastmod>2026-09-15</lastmod>
+         <lastmod>2026-09-16</lastmod>
     </url>
     <url>
          <loc>https://VishalSyntax.github.io/install-dev-aliases/installation/</loc>
-         <lastmod>2026-09-15</lastmod>
+         <lastmod>2026-09-16</lastmod>
+    </url>
+    <url>
+         <loc>https://VishalSyntax.github.io/install-dev-aliases/terraform-cache/</loc>
+         <lastmod>2026-09-16</lastmod>
     </url>
 </urlset>

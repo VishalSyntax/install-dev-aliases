@@ -18,7 +18,7 @@
         <link rel="prev" href="../installation/">
       
       
-        <link rel="next" href="../contributing/">
+        <link rel="next" href="../terraform-cache/">
       
       
         
@@ -283,6 +283,26 @@
   
   
   
+    
+    
+      <li class="md-tabs__item">
+        <a href="../terraform-cache/" class="md-tabs__link">
+          
+  
+  
+  Bonus Scripts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
     <li class="md-tabs__item">
       <a href="../contributing/" class="md-tabs__link">
         
@@ -475,10 +495,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#terraform-workflows" class="md-nav__link">
+  <a href="#how-i-use-these-day-to-day" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Terraform Workflows
+        How I use these day to day
       
     </span>
   </a>
@@ -503,10 +523,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#git-workflows" class="md-nav__link">
+  <a href="#my-usual-workflows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Git Workflows
+        My usual workflows
       
     </span>
   </a>
@@ -522,7 +542,7 @@
   <a href="#coming-soon" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Coming Soon
+        Coming soon
       
     </span>
   </a>
@@ -532,6 +552,91 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bonus Scripts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bonus Scripts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform-cache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terraform Plugin Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -603,10 +708,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#terraform-workflows" class="md-nav__link">
+  <a href="#how-i-use-these-day-to-day" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Terraform Workflows
+        How I use these day to day
       
     </span>
   </a>
@@ -631,10 +736,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#git-workflows" class="md-nav__link">
+  <a href="#my-usual-workflows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Git Workflows
+        My usual workflows
       
     </span>
   </a>
@@ -650,7 +755,7 @@
   <a href="#coming-soon" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Coming Soon
+        Coming soon
       
     </span>
   </a>
@@ -678,7 +783,7 @@
 
 
 <h1 id="alias-reference">Alias Reference</h1>
-<p>Complete reference for all installed aliases with descriptions and workflow examples.</p>
+<p>Full list of all aliases with what they do and some common workflows I use daily.</p>
 <hr />
 <h2 id="terraform">Terraform</h2>
 <table>
@@ -686,80 +791,79 @@
 <tr>
 <th>Alias</th>
 <th>Command</th>
-<th>Description</th>
+<th>What it does</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>tf</code></td>
 <td><code>terraform</code></td>
-<td>Base Terraform command</td>
+<td>base terraform command</td>
 </tr>
 <tr>
 <td><code>tfi</code></td>
 <td><code>terraform init</code></td>
-<td>Initialize a working directory and download providers</td>
+<td>initialize directory, download providers</td>
 </tr>
 <tr>
 <td><code>tfp</code></td>
 <td><code>terraform plan</code></td>
-<td>Preview what changes will be applied</td>
+<td>preview what's going to change</td>
 </tr>
 <tr>
 <td><code>tfa</code></td>
 <td><code>terraform apply --auto-approve</code></td>
-<td>Apply changes without a confirmation prompt</td>
+<td>apply without the yes/no prompt</td>
 </tr>
 <tr>
 <td><code>tfd</code></td>
 <td><code>terraform destroy --auto-approve</code></td>
-<td>Destroy all resources without a confirmation prompt</td>
+<td>destroy everything without prompt</td>
 </tr>
 <tr>
 <td><code>tfv</code></td>
 <td><code>terraform validate</code></td>
-<td>Check configuration files for syntax errors</td>
+<td>check if config files have errors</td>
 </tr>
 <tr>
 <td><code>tff</code></td>
 <td><code>terraform fmt</code></td>
-<td>Auto-format <code>.tf</code> files to canonical style</td>
+<td>auto-format all .tf files</td>
 </tr>
 <tr>
 <td><code>tfo</code></td>
 <td><code>terraform output</code></td>
-<td>Display output values defined in the configuration</td>
+<td>show output values from state</td>
 </tr>
 <tr>
 <td><code>tfs</code></td>
 <td><code>terraform show</code></td>
-<td>Inspect the current state or a saved plan file</td>
+<td>inspect current state</td>
 </tr>
 <tr>
 <td><code>tfws</code></td>
 <td><code>terraform workspace</code></td>
-<td>List, create, or switch Terraform workspaces</td>
+<td>manage workspaces</td>
 </tr>
 </tbody>
 </table>
-<h3 id="terraform-workflows">Terraform Workflows</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Standard deploy flow</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>tfi<span class="w">                    </span><span class="c1"># terraform init</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>tfv<span class="w">                    </span><span class="c1"># terraform validate</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>tfp<span class="w">                    </span><span class="c1"># terraform plan</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>tfa<span class="w">                    </span><span class="c1"># terraform apply --auto-approve</span>
+<h3 id="how-i-use-these-day-to-day">How I use these day to day</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># starting a new project</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>tfi
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>tfv
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>tfp
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>tfa
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Inspect state</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>tfs<span class="w">                    </span><span class="c1"># terraform show</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>tfo<span class="w">                    </span><span class="c1"># terraform output</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># check what's deployed</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>tfs
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>tfo
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Workspace management</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>tfws<span class="w"> </span>list<span class="w">              </span><span class="c1"># list all workspaces</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>tfws<span class="w"> </span>new<span class="w"> </span>staging<span class="w">       </span><span class="c1"># create a new workspace</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>tfws<span class="w"> </span><span class="k">select</span><span class="w"> </span>staging<span class="w">    </span><span class="c1"># switch to a workspace</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1"># Teardown</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>tfd<span class="w">                    </span><span class="c1"># terraform destroy --auto-approve</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># switching workspaces</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>tfws<span class="w"> </span>list
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>tfws<span class="w"> </span><span class="k">select</span><span class="w"> </span>staging
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># tearing down</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>tfd
 </code></pre></div>
 <hr />
 <h2 id="git">Git</h2>
@@ -768,133 +872,136 @@
 <tr>
 <th>Alias</th>
 <th>Command</th>
-<th>Description</th>
+<th>What it does</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>g</code></td>
 <td><code>git</code></td>
-<td>Base Git command</td>
+<td>base git command</td>
 </tr>
 <tr>
 <td><code>gs</code></td>
 <td><code>git status</code></td>
-<td>Show the state of the working tree and staging area</td>
+<td>see what's changed</td>
 </tr>
 <tr>
 <td><code>ga</code></td>
 <td><code>git add</code></td>
-<td>Stage changes for the next commit</td>
+<td>stage files</td>
 </tr>
 <tr>
 <td><code>gc</code></td>
 <td><code>git commit</code></td>
-<td>Record staged changes with a message</td>
+<td>commit staged changes</td>
 </tr>
 <tr>
 <td><code>gp</code></td>
 <td><code>git push</code></td>
-<td>Push local commits to the remote repository</td>
+<td>push to remote</td>
 </tr>
 <tr>
 <td><code>gl</code></td>
 <td><code>git pull</code></td>
-<td>Fetch and integrate changes from the remote</td>
+<td>pull latest from remote</td>
 </tr>
 <tr>
 <td><code>gb</code></td>
 <td><code>git branch</code></td>
-<td>List, create, rename, or delete branches</td>
+<td>list or manage branches</td>
 </tr>
 <tr>
 <td><code>gco</code></td>
 <td><code>git checkout</code></td>
-<td>Switch branches or restore working tree files</td>
+<td>switch branches or restore files</td>
 </tr>
 <tr>
 <td><code>gd</code></td>
 <td><code>git diff</code></td>
-<td>Show differences between working tree and index</td>
+<td>see unstaged changes</td>
 </tr>
 <tr>
 <td><code>glog</code></td>
 <td><code>git log --oneline</code></td>
-<td>Display a compact, one-line commit history</td>
+<td>compact commit history</td>
 </tr>
 <tr>
 <td><code>gst</code></td>
 <td><code>git stash</code></td>
-<td>Temporarily save uncommitted changes</td>
+<td>stash current changes</td>
 </tr>
 <tr>
 <td><code>gstp</code></td>
 <td><code>git stash pop</code></td>
-<td>Re-apply the most recently stashed changes</td>
+<td>bring back stashed changes</td>
 </tr>
 <tr>
 <td><code>grs</code></td>
 <td><code>git restore</code></td>
-<td>Discard changes in the working directory</td>
+<td>discard changes in a file</td>
 </tr>
 <tr>
 <td><code>grss</code></td>
 <td><code>git restore --staged</code></td>
-<td>Remove files from the staging area</td>
+<td>unstage a file</td>
 </tr>
 <tr>
 <td><code>gm</code></td>
 <td><code>git merge</code></td>
-<td>Merge a branch into the currently active branch</td>
+<td>merge a branch</td>
 </tr>
 <tr>
 <td><code>grb</code></td>
 <td><code>git rebase</code></td>
-<td>Reapply commits on top of another base branch</td>
+<td>rebase onto another branch</td>
 </tr>
 <tr>
 <td><code>grt</code></td>
 <td><code>git remote -v</code></td>
-<td>List all configured remote repositories with URLs</td>
+<td>see configured remotes</td>
 </tr>
 <tr>
 <td><code>gcl</code></td>
 <td><code>git clone</code></td>
-<td>Clone a remote repository to your local machine</td>
+<td>clone a repo</td>
 </tr>
 </tbody>
 </table>
-<h3 id="git-workflows">Git Workflows</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Daily commit flow</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>gs<span class="w">                           </span><span class="c1"># git status</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ga<span class="w"> </span>.<span class="w">                         </span><span class="c1"># git add .</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>gc<span class="w"> </span>-m<span class="w"> </span><span class="s2">"feat: add feature"</span><span class="w">    </span><span class="c1"># git commit -m "..."</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>gp<span class="w">                           </span><span class="c1"># git push</span>
+<h3 id="my-usual-workflows">My usual workflows</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># everyday commit</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>gs
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ga<span class="w"> </span>.
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>gc<span class="w"> </span>-m<span class="w"> </span><span class="s2">"feat: something"</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>gp
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Feature branch workflow</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>gb<span class="w"> </span>feature/my-feature<span class="w">        </span><span class="c1"># create branch</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>gco<span class="w"> </span>feature/my-feature<span class="w">       </span><span class="c1"># switch to branch</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>ga<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>gc<span class="w"> </span>-m<span class="w"> </span><span class="s2">"feat: done"</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>gp
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Stash and switch context</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>gst<span class="w">                          </span><span class="c1"># stash current work</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>gco<span class="w"> </span>main<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>gl<span class="w">               </span><span class="c1"># switch to main and pull</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>gco<span class="w"> </span>feature/my-feature
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>gstp<span class="w">                         </span><span class="c1"># restore stashed work</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="c1"># Undo mistakes</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>grs<span class="w"> </span>file.txt<span class="w">                 </span><span class="c1"># discard changes in file</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>grss<span class="w"> </span>file.txt<span class="w">                </span><span class="c1"># unstage a staged file</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>glog<span class="w">                         </span><span class="c1"># review commit history</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># working on a feature branch</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>gb<span class="w"> </span>my-feature
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>gco<span class="w"> </span>my-feature
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># ... do work ...</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>ga<span class="w"> </span>.
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>gc<span class="w"> </span>-m<span class="w"> </span><span class="s2">"feat: done"</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>gp
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c1"># need to switch context quickly</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>gst<span class="w">                   </span><span class="c1"># stash current work</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>gco<span class="w"> </span>main
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>gl
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>gco<span class="w"> </span>my-feature
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>gstp<span class="w">                  </span><span class="c1"># get stashed work back</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="c1"># made a mistake</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>grs<span class="w"> </span>file.txt<span class="w">          </span><span class="c1"># throw away changes in a file</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>grss<span class="w"> </span>file.txt<span class="w">         </span><span class="c1"># unstage something</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>glog<span class="w">                  </span><span class="c1"># check history</span>
 </code></pre></div>
 <hr />
-<h2 id="coming-soon">Coming Soon</h2>
+<h2 id="coming-soon">Coming soon</h2>
 <table>
 <thead>
 <tr>
 <th>Tool</th>
-<th>Planned Aliases</th>
+<th>Planned</th>
 </tr>
 </thead>
 <tbody>

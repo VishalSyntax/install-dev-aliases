@@ -281,6 +281,26 @@
   
   
   
+    
+    
+      <li class="md-tabs__item">
+        <a href="terraform-cache/" class="md-tabs__link">
+          
+  
+  
+  Bonus Scripts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
     <li class="md-tabs__item">
       <a href="contributing/" class="md-tabs__link">
         
@@ -407,10 +427,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#whats-included" class="md-nav__link">
+  <a href="#whats-inside" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What's Included
+        What's inside
       
     </span>
   </a>
@@ -418,10 +438,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-example" class="md-nav__link">
+  <a href="#before-vs-after" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Example
+        Before vs after
       
     </span>
   </a>
@@ -429,10 +449,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#get-started" class="md-nav__link">
+  <a href="#where-to-go-next" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Get Started
+        Where to go next
       
     </span>
   </a>
@@ -507,6 +527,91 @@
   
   
   
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bonus Scripts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bonus Scripts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="terraform-cache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terraform Plugin Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="contributing/" class="md-nav__link">
         
@@ -555,10 +660,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#whats-included" class="md-nav__link">
+  <a href="#whats-inside" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What's Included
+        What's inside
       
     </span>
   </a>
@@ -566,10 +671,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-example" class="md-nav__link">
+  <a href="#before-vs-after" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Example
+        Before vs after
       
     </span>
   </a>
@@ -577,10 +682,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#get-started" class="md-nav__link">
+  <a href="#where-to-go-next" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Get Started
+        Where to go next
       
     </span>
   </a>
@@ -608,17 +713,15 @@
 
 
 <h1 id="dev-aliases">dev-aliases</h1>
-<blockquote>
-<p>One-click installer for Terraform and Git aliases on Windows — works in both <strong>CMD</strong> and <strong>PowerShell</strong>.</p>
-</blockquote>
-<p>If you work with Terraform and Git daily, you already know the pain of typing long repetitive commands. <strong>dev-aliases</strong> installs short, memorable shortcuts so you can focus on building — not typing.</p>
+<p>I got tired of typing <code>terraform apply --auto-approve</code> and <code>git log --oneline</code> a hundred times a day, so I made this.</p>
+<p>It's a simple installer that sets up short aliases for Terraform and Git on Windows — works in both CMD and PowerShell.</p>
 <hr />
-<h2 id="whats-included">What's Included</h2>
+<h2 id="whats-inside">What's inside</h2>
 <table>
 <thead>
 <tr>
 <th>Tool</th>
-<th style="text-align: center;">Total</th>
+<th style="text-align: center;">Count</th>
 <th>Aliases</th>
 </tr>
 </thead>
@@ -635,12 +738,9 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition tip">
-<p class="admonition-title">Coming Soon</p>
-<p>Docker and kubectl aliases — contributions welcome!</p>
-</div>
+<p>Docker and kubectl aliases are coming — feel free to contribute!</p>
 <hr />
-<h2 id="quick-example">Quick Example</h2>
+<h2 id="before-vs-after">Before vs after</h2>
 <p>Before:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>terraform<span class="w"> </span>apply<span class="w"> </span>--auto-approve
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
@@ -652,10 +752,10 @@
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>grss<span class="w"> </span>.
 </code></pre></div></p>
 <hr />
-<h2 id="get-started">Get Started</h2>
+<h2 id="where-to-go-next">Where to go next</h2>
 <ul>
-<li><a href="installation/">Installation</a> — set up aliases in under a minute</li>
-<li><a href="aliases-reference/">Alias Reference</a> — full list with descriptions and workflows</li>
+<li><a href="installation/">Installation</a> — takes less than a minute</li>
+<li><a href="aliases-reference/">Alias Reference</a> — full list with examples</li>
 <li><a href="contributing/">Contributing</a> — add your own aliases</li>
 </ul>
 
