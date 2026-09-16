@@ -29,7 +29,7 @@
     
     
       
-        <title>Terraform Plugin Cache - dev-aliases</title>
+        <title>Terraform Shared Cache - dev-aliases</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#terraform-plugin-cache" class="md-skip">
+        <a href="#terraform-shared-data-directory" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Terraform Plugin Cache
+              Terraform Shared Cache
             
           </span>
         </div>
@@ -290,7 +290,7 @@
           
   
   
-  Bonus Scripts
+  Extras
 
         </a>
       </li>
@@ -476,7 +476,7 @@
   <span class="md-ellipsis">
     
   
-    Bonus Scripts
+    Extras
   
 
     
@@ -492,7 +492,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Bonus Scripts
+    Extras
   
 
           </label>
@@ -521,7 +521,7 @@
   <span class="md-ellipsis">
     
   
-    Terraform Plugin Cache
+    Terraform Shared Cache
   
 
     
@@ -539,7 +539,7 @@
   <span class="md-ellipsis">
     
   
-    Terraform Plugin Cache
+    Terraform Shared Cache
   
 
     
@@ -565,21 +565,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-the-script-does" class="md-nav__link">
+  <a href="#using-tf_data_dir-to-save-disk-space" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What the script does
+        Using TF_DATA_DIR to Save Disk Space
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using TF_DATA_DIR to Save Disk Space">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-tf_data_dir-trick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The TF_DATA_DIR Trick
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-run-it" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#before-vs-after" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to run it
+        Before vs After
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-set-it-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Set It Up
       
     </span>
   </a>
@@ -590,7 +618,7 @@
   <a href="#what-gets-created" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What gets created
+        What Gets Created
       
     </span>
   </a>
@@ -667,21 +695,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-the-script-does" class="md-nav__link">
+  <a href="#using-tf_data_dir-to-save-disk-space" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What the script does
+        Using TF_DATA_DIR to Save Disk Space
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using TF_DATA_DIR to Save Disk Space">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-tf_data_dir-trick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The TF_DATA_DIR Trick
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-run-it" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#before-vs-after" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to run it
+        Before vs After
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-set-it-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Set It Up
       
     </span>
   </a>
@@ -692,7 +748,7 @@
   <a href="#what-gets-created" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What gets created
+        What Gets Created
       
     </span>
   </a>
@@ -719,37 +775,57 @@
   
 
 
-<h1 id="terraform-plugin-cache">Terraform Plugin Cache</h1>
-<p>Every time you run <code>terraform init</code>, Terraform downloads providers from the internet — even if you downloaded the exact same version yesterday. This script fixes that by setting up a local plugin cache.</p>
-<p>Once it's configured, providers get cached on first download and reused after that.</p>
+<h1 id="terraform-shared-data-directory">Terraform Shared Data Directory</h1>
+<h2 id="using-tf_data_dir-to-save-disk-space">Using TF_DATA_DIR to Save Disk Space</h2>
+<p>By default, Terraform creates a <code>.terraform</code> folder inside each project.
+This folder contains provider binaries (like <code>aws.exe</code> ~800MB), which means every project ends up with its own duplicate copy — quickly consuming disk space.</p>
 <hr />
-<h2 id="what-the-script-does">What the script does</h2>
-<ol>
-<li>Creates <code>C:\terraform.d\plugin-cache</code> directory</li>
-<li>Writes <code>%APPDATA%\terraform.rc</code> pointing to that directory</li>
-<li>Sets <code>TF_PLUGIN_CACHE_DIR</code> as a permanent environment variable</li>
-</ol>
-<p>Running it multiple times is fine — it skips steps that are already done.</p>
+<h3 id="the-tf_data_dir-trick">The TF_DATA_DIR Trick</h3>
+<p>Terraform supports an environment variable called <code>TF_DATA_DIR</code> that lets you override where the <code>.terraform</code> working directory is stored.</p>
+<p>Example (Windows PowerShell):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">setx</span> <span class="n">TF_DATA_DIR</span> <span class="s2">"C:\terraform-shared"</span>
+</code></pre></div></p>
+<p>Once set, all your projects will use <code>C:\terraform-shared</code> as their <code>.terraform</code> folder instead of creating one locally. Providers download once and get reused across every project.</p>
 <hr />
-<h2 id="how-to-run-it">How to run it</h2>
-<p><strong>CMD:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>scripts\setup-terraform-cache.cmd
+<h3 id="before-vs-after">Before vs After</h3>
+<p><strong>Before</strong> — every project downloads its own copy:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>C:\projects\
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── project-a\
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│   └── .terraform\        # ~800MB aws.exe
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── project-b\
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│   └── .terraform\        # ~800MB aws.exe (duplicate)
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>└── project-c\
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    └── .terraform\        # ~800MB aws.exe (duplicate)
 </code></pre></div></p>
-<p><strong>PowerShell:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">.\</span><span class="n">scripts</span><span class="p">\</span><span class="n">setup-terraform-cache</span><span class="p">.</span><span class="n">ps1</span>
+<p><strong>After</strong> — one shared copy for all projects:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>C:\terraform-shared\       # ~800MB aws.exe (shared)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>C:\projects\
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>├── project-a\             # no .terraform folder
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>├── project-b\             # no .terraform folder
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>└── project-c\             # no .terraform folder
 </code></pre></div></p>
 <hr />
-<h2 id="what-gets-created">What gets created</h2>
-<p><code>C:\terraform.d\plugin-cache</code> — where providers get cached</p>
-<p><code>%APPDATA%\terraform.rc</code>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">plugin_cache_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"C:\\terraform.d\\plugin-cache"</span>
-</code></pre></div></p>
+<h2 id="how-to-set-it-up">How to Set It Up</h2>
+<p>Run one of these scripts — they create the shared directory and set <code>TF_DATA_DIR</code> permanently.</p>
+<p><strong>CMD:</strong></p>
+<p><a class="md-button md-button--primary" href="https://raw.githubusercontent.com/VishalSyntax/install-dev-aliases/main/scripts/setup-terraform-cache.cmd">Download setup-terraform-cache.cmd</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>scripts\setup-terraform-cache.cmd
+</code></pre></div>
+<p><strong>PowerShell:</strong></p>
+<p><a class="md-button md-button--primary" href="https://raw.githubusercontent.com/VishalSyntax/install-dev-aliases/main/scripts/setup-terraform-cache.ps1">Download setup-terraform-cache.ps1</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">.\</span><span class="n">scripts</span><span class="p">\</span><span class="n">setup-terraform-cache</span><span class="p">.</span><span class="n">ps1</span>
+</code></pre></div>
+<p>Both scripts are safe to run multiple times — they skip steps that are already done.</p>
+<hr />
+<h2 id="what-gets-created">What Gets Created</h2>
+<p><code>C:\terraform-shared</code> — single shared directory used by all projects</p>
 <p>User environment variable:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>TF_PLUGIN_CACHE_DIR=C:\terraform.d\plugin-cache
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>TF_DATA_DIR=C:\terraform-shared
 </code></pre></div></p>
 <hr />
 <blockquote>
-<p>Restart your terminal after running, then do <code>terraform init</code> in any project — providers will be cached from that point on.</p>
+<p>Restart your terminal after running, then do <code>terraform init</code> in any project — providers will be stored in <code>C:\terraform-shared</code> and reused across all your projects from that point on.</p>
 </blockquote>
 
 
