@@ -1,55 +1,77 @@
 # Contributing
 
-Thanks for your interest in contributing! Here's how to add new aliases.
+Want to add Docker, kubectl, AWS CLI or something else? Here's how to do it.
 
 ---
 
-## Adding a New Alias Group (e.g. Docker, kubectl)
+## Getting started
 
-### 1. Add CMD aliases in `scripts/install.cmd`
+Fork the repo, clone it, make a branch:
 
-Find the `Creating CMD aliases` section and add your entries:
+```cmd
+gcl https://github.com/your-username/install-dev-aliases.git
+gco -b feat/add-docker-aliases
+```
+
+---
+
+## Adding a new alias group
+
+Three files need to be updated:
+
+### 1. `scripts/install.cmd`
+
+Add a block in the `Creating CMD aliases` section:
 
 ```cmd
 :: ---------- Docker ----------
-(echo @echo off & echo docker %%*)            > "%ALIAS_DIR%\d.cmd"
-(echo @echo off & echo docker ps %%*)         > "%ALIAS_DIR%\dps.cmd"
-(echo @echo off & echo docker logs %%*)       > "%ALIAS_DIR%\dlogs.cmd"
+(echo @echo off & echo docker %%*)           > "%ALIAS_DIR%\d.cmd"
+(echo @echo off & echo docker ps %%*)        > "%ALIAS_DIR%\dps.cmd"
+(echo @echo off & echo docker logs -f %%*)   > "%ALIAS_DIR%\dlogs.cmd"
 ```
 
-### 2. Add PowerShell functions in `scripts/install.ps1`
+### 2. `scripts/install.ps1`
 
-Add entries to the `$cmdAliases` hashtable:
+Add to the `$cmdAliases` hashtable:
 
 ```powershell
 "d.cmd"     = "docker %*"
 "dps.cmd"   = "docker ps %*"
-"dlogs.cmd" = "docker logs %*"
+"dlogs.cmd" = "docker logs -f %*"
 ```
 
-And add the matching PS functions to the `$block` here-string:
+Add matching functions to the `$block` here-string:
 
 ```powershell
 # Docker
 function d       { docker @args }
 function dps     { docker ps @args }
-function dlogs   { docker logs @args }
+function dlogs   { docker logs -f @args }
 ```
 
-### 3. Update the docs
+### 3. Docs
 
-- Add a new table in `docs/aliases-reference.md`
-- Update the alias table in `README.md`
+- Add a table in `docs/aliases-reference.md`
+- Update the summary in `docs/index.md`
+- Update `README.md`
 
-### 4. Open a Pull Request
+---
 
-- Use a clear title like `feat: add Docker aliases`
-- Describe what aliases you added and why they're useful
+## Submitting a PR
+
+```cmd
+ga .
+gc -m "feat: add Docker aliases"
+gp origin feat/add-docker-aliases
+```
+
+Open a PR with a short note on what you added and why it's useful.
 
 ---
 
 ## Guidelines
 
 - Keep alias names short (2–5 chars)
-- Only alias commands that are commonly used in DevOps workflows
-- Test both CMD and PowerShell before submitting
+- Only add commands you'd actually use in real DevOps work
+- Make sure it doesn't clash with an existing system command
+- Test in both CMD and PowerShell before submitting
